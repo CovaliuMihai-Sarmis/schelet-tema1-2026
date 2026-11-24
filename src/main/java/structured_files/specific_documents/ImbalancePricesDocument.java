@@ -1,7 +1,7 @@
-package structuredfiles.specific_documents;
+package structured_files.specific_documents;
 
-import structuredfiles.DailyDocument;
-import structuredfiles.ImbalancePriceInterval;
+import structured_files.DailyDocument;
+import structured_files.ImbalancePriceInterval;
 
 public class ImbalancePricesDocument extends DailyDocument<ImbalancePriceInterval> {
 

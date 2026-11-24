@@ -1,4 +1,4 @@
-package structuredfiles;
+package structured_files;
 
 public abstract class Interval {
     private Integer intervalIndex;

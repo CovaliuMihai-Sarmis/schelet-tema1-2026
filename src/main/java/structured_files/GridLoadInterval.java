@@ -1,4 +1,4 @@
-package structuredfiles;
+package structured_files;
 
 public class GridLoadInterval extends Interval {
     private Double quantity;

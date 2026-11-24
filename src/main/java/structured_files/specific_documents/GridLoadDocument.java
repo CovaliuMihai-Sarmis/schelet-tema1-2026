@@ -1,7 +1,7 @@
-package structuredfiles.specific_documents;
+package structured_files.specific_documents;
 
-import structuredfiles.DailyDocument;
-import structuredfiles.GridLoadInterval;
+import structured_files.DailyDocument;
+import structured_files.GridLoadInterval;
 
 public class GridLoadDocument extends DailyDocument<GridLoadInterval> {
 

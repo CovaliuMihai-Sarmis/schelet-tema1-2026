@@ -1,4 +1,4 @@
-package structuredfiles;
+package structured_files;
 
 public class ImbalanceVolumeInterval extends Interval {
     private Double positiveImbalanceVol;

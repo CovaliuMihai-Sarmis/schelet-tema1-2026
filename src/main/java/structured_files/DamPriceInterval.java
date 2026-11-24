@@ -1,4 +1,4 @@
-package structuredfiles;
+package structured_files;
 
 public class DamPriceInterval extends Interval {
     private Double priceAmount;

@@ -1,7 +1,7 @@
-package structuredfiles.specific_documents;
+package structured_files.specific_documents;
 
-import structuredfiles.DailyDocument;
-import structuredfiles.DamPriceInterval;
+import structured_files.DailyDocument;
+import structured_files.DamPriceInterval;
 
 public class DamPricesDocument extends DailyDocument<DamPriceInterval> {
 

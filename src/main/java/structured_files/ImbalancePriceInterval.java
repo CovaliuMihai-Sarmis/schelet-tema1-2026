@@ -1,4 +1,4 @@
-package structuredfiles;
+package structured_files;
 
 public class ImbalancePriceInterval extends Interval {
     private Double positiveImbalancePrice;

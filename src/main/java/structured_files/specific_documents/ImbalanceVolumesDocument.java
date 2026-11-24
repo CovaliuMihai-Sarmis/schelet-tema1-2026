@@ -1,7 +1,7 @@
-package structuredfiles.specific_documents;
+package structured_files.specific_documents;
 
-import structuredfiles.DailyDocument;
-import structuredfiles.ImbalanceVolumeInterval;
+import structured_files.DailyDocument;
+import structured_files.ImbalanceVolumeInterval;
 
 public class ImbalanceVolumesDocument extends DailyDocument<ImbalanceVolumeInterval> {
 
