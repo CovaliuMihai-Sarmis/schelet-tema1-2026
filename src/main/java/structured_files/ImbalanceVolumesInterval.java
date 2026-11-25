@@ -1,6 +1,6 @@
 package structured_files;
 
-public class ImbalanceVolumeInterval extends Interval {
+public class ImbalanceVolumesInterval extends Interval {
     private Double positiveImbalanceVol;
     private Double negativeImbalanceVol;
 
@@ -18,5 +18,10 @@ public class ImbalanceVolumeInterval extends Interval {
 
     public void setNegativeImbalanceVol(Double negativeImbalanceVol) {
         this.negativeImbalanceVol = negativeImbalanceVol;
+    }
+
+    @Override
+    public boolean hasData() {
+        return positiveImbalanceVol != null && negativeImbalanceVol != null;
     }
 }

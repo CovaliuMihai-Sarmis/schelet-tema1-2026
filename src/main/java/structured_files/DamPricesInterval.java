@@ -1,6 +1,6 @@
 package structured_files;
 
-public class DamPriceInterval extends Interval {
+public class DamPricesInterval extends Interval {
     private Double priceAmount;
 
     public Double getPriceAmount() {
@@ -9,5 +9,10 @@ public class DamPriceInterval extends Interval {
 
     public void setPriceAmount(Double priceAmount) {
         this.priceAmount = priceAmount;
+    }
+
+    @Override
+    public boolean hasData() {
+        return priceAmount != null;
     }
 }

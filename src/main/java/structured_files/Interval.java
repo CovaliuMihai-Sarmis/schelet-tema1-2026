@@ -10,4 +10,6 @@ public abstract class Interval {
     public void setIntervalIndex(Integer intervalIndex) {
         this.intervalIndex = intervalIndex;
     }
+
+    public abstract boolean hasData();
 }

@@ -19,4 +19,9 @@ public class DamPricePredictionInterval extends Interval {
     public void setSpikeProbability(Double spikeProbability) {
         this.spikeProbability = spikeProbability;
     }
+
+    @Override
+    public boolean hasData() {
+        return predictedPriceEurMwh != null && spikeProbability != null;
+    }
 }

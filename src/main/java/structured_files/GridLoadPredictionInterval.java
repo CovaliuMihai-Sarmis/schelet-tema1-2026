@@ -19,4 +19,9 @@ public class GridLoadPredictionInterval extends Interval {
     public void setReservesRequiredMW(Double reservesRequiredMW) {
         this.reservesRequiredMW = reservesRequiredMW;
     }
+
+    @Override
+    public boolean hasData() {
+        return quantity != null && reservesRequiredMW != null;
+    }
 }

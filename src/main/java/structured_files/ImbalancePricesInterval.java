@@ -1,6 +1,6 @@
 package structured_files;
 
-public class ImbalancePriceInterval extends Interval {
+public class ImbalancePricesInterval extends Interval {
     private Double positiveImbalancePrice;
     private Double negativeImbalancePrice;
 
@@ -18,5 +18,10 @@ public class ImbalancePriceInterval extends Interval {
 
     public void setNegativeImbalancePrice(Double negativeImbalancePrice) {
         this.negativeImbalancePrice = negativeImbalancePrice;
+    }
+
+    @Override
+    public boolean hasData() {
+        return positiveImbalancePrice != null && negativeImbalancePrice != null;
     }
 }
