@@ -3,14 +3,12 @@ package repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import structured_files.DailyDocument;
 import structured_files.Interval;
-import structured_files.specific_documents.DamPricesPredictionDocument;
-import structured_files.specific_documents.DamPricesDocument;
-import structured_files.specific_documents.GridLoadDocument;
-import structured_files.specific_documents.GridLoadPredictionDocument;
-import structured_files.specific_documents.ImbalancePricesDocument;
-import structured_files.specific_documents.ImbalanceVolumesDocument;
-
-import structured_files.GridLoadInterval;
+import structured_files.specificdocuments.DamPricesPredictionDocument;
+import structured_files.specificdocuments.DamPricesDocument;
+import structured_files.specificdocuments.GridLoadDocument;
+import structured_files.specificdocuments.GridLoadPredictionDocument;
+import structured_files.specificdocuments.ImbalancePricesDocument;
+import structured_files.specificdocuments.ImbalanceVolumesDocument;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
