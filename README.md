@@ -49,3 +49,5 @@ Problema: verificarea prezentei datelor din GridLoadInterval tinea cont initial 
 Schimbarea: am aliniat conditia din GridLoadInterval strict la campurile persistate pentru acest tip de flux.
 
 UTILIZAREA INSTRUMENTELOR AI
+
+Am folosit un asistent AI exclusiv pentru structurarea si redactarea acestui fisier README. Continutul a fost revizuit si adaptat manual astfel incat sa reflecte exact implementarea si deciziile de design din proiect.
