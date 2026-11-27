@@ -1,13 +1,13 @@
-package structured_files;
+package structuredfiles;
 
 public abstract class Interval {
     private Integer intervalIndex;
 
-    public Integer getIntervalIndex() {
+    public final Integer getIntervalIndex() {
         return intervalIndex;
     }
 
-    public void setIntervalIndex(Integer intervalIndex) {
+    public final void setIntervalIndex(final Integer intervalIndex) {
         this.intervalIndex = intervalIndex;
     }
 

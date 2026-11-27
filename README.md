@@ -2,7 +2,7 @@ Aplicatia simuleaza platforma Energex-Lite pentru centralizarea, validarea si in
 
 ARHITECTURA SI JUSTIFICAREA DECIZIILOR OOP
 
-Arhitectura este impartita pe componente cu responsabilitati clare (structured_files, repository, start_simulation, commands si main), astfel incat datele de domeniu, stocarea, starea simularii si executia comenzilor sa fie decuplate.
+Arhitectura este impartita pe componente cu responsabilitati clare (structuredfiles, repository, startsimulation, commands si main), astfel incat datele de domeniu, stocarea, starea simularii si executia comenzilor sa fie decuplate.
 
 Ierarhia de domeniu (Interval si DailyDocument)
 Am ales o ierarhie pe doua niveluri: clasa abstracta Interval (extinsa de cate o clasa concreta pentru fiecare dintre cele 6 fluxuri) si clasa generica DailyDocument (specializata in pachetul specific_documents).

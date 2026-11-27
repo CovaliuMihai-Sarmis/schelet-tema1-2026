@@ -1,6 +1,6 @@
-package structured_files;
+package structuredfiles;
 
-public class ImbalancePricesInterval extends Interval {
+public final class ImbalancePricesInterval extends Interval {
     private Double positiveImbalancePrice;
     private Double negativeImbalancePrice;
 
@@ -8,7 +8,7 @@ public class ImbalancePricesInterval extends Interval {
         return positiveImbalancePrice;
     }
 
-    public void setPositiveImbalancePrice(Double positiveImbalancePrice) {
+    public void setPositiveImbalancePrice(final Double positiveImbalancePrice) {
         this.positiveImbalancePrice = positiveImbalancePrice;
     }
 
@@ -16,7 +16,7 @@ public class ImbalancePricesInterval extends Interval {
         return negativeImbalancePrice;
     }
 
-    public void setNegativeImbalancePrice(Double negativeImbalancePrice) {
+    public void setNegativeImbalancePrice(final Double negativeImbalancePrice) {
         this.negativeImbalancePrice = negativeImbalancePrice;
     }
 

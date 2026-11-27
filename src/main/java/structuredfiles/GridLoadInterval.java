@@ -1,6 +1,6 @@
-package structured_files;
+package structuredfiles;
 
-public class GridLoadInterval extends Interval {
+public final class GridLoadInterval extends Interval {
     private Double quantity;
     private Double reservesRequiredMW;
 
@@ -8,7 +8,7 @@ public class GridLoadInterval extends Interval {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(final Double quantity) {
         this.quantity = quantity;
     }
 
@@ -16,7 +16,7 @@ public class GridLoadInterval extends Interval {
         return reservesRequiredMW;
     }
 
-    public void setReservesRequiredMW(Double reservesRequiredMW) {
+    public void setReservesRequiredMW(final Double reservesRequiredMW) {
         this.reservesRequiredMW = reservesRequiredMW;
     }
 

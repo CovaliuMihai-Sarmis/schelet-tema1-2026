@@ -2,7 +2,7 @@ package commands;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import fileio.CommandInput;
-import start_simulation.Simulation;
+import startsimulation.Simulation;
 
 public abstract class ExecuteCommand {
     protected final CommandInput input;
@@ -11,6 +11,11 @@ public abstract class ExecuteCommand {
         this.input = input;
     }
 
-    public abstract void execute(final Simulation simulation,
-                                 final ArrayNode output);
+    /**
+     * Executes this command and appends any result to the output.
+     *
+     * @param simulation simulation state used by the command
+     * @param output output array receiving command results
+     */
+    public abstract void execute(Simulation simulation, ArrayNode output);
 }

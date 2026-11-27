@@ -1,14 +1,14 @@
 package repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import structured_files.DailyDocument;
-import structured_files.Interval;
-import structured_files.specificdocuments.DamPricesPredictionDocument;
-import structured_files.specificdocuments.DamPricesDocument;
-import structured_files.specificdocuments.GridLoadDocument;
-import structured_files.specificdocuments.GridLoadPredictionDocument;
-import structured_files.specificdocuments.ImbalancePricesDocument;
-import structured_files.specificdocuments.ImbalanceVolumesDocument;
+import structuredfiles.DailyDocument;
+import structuredfiles.Interval;
+import structuredfiles.specificdocuments.DamPricesPredictionDocument;
+import structuredfiles.specificdocuments.DamPricesDocument;
+import structuredfiles.specificdocuments.GridLoadDocument;
+import structuredfiles.specificdocuments.GridLoadPredictionDocument;
+import structuredfiles.specificdocuments.ImbalancePricesDocument;
+import structuredfiles.specificdocuments.ImbalanceVolumesDocument;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,6 +22,9 @@ import java.util.List;
 import java.util.Map;
 
 public final class MarketDataRepository {
+    private static final int INTERVAL_MINUTES = 15;
+    private static final int INTERVALS_PER_HOUR = 4;
+
     private final Map<String, TreeMap<String, DailyDocument<?>>> storage = new HashMap<>();
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -145,7 +148,8 @@ public final class MarketDataRepository {
         }
 
         String maxDate = maxSlotStart.toLocalDate().toString();
-        int maxIndex = (maxSlotStart.getHour() * 4) + (maxSlotStart.getMinute() / 15) + 1;
+        int maxIndex = (maxSlotStart.getHour() * INTERVALS_PER_HOUR)
+                + (maxSlotStart.getMinute() / INTERVAL_MINUTES) + 1;
 
         for (Map.Entry<String, DailyDocument<?>> entry
                 : docs.headMap(maxDate, true).descendingMap().entrySet()) {
@@ -162,7 +166,8 @@ public final class MarketDataRepository {
                 Object obj = points.get(i);
                 if (obj instanceof Interval interval && interval.hasData()) {
                     LocalDate d = LocalDate.parse(entry.getKey());
-                    LocalTime t = LocalTime.of(i / 4, (i % 4) * 15);
+                    LocalTime t = LocalTime.of(i / INTERVALS_PER_HOUR,
+                            (i % INTERVALS_PER_HOUR) * INTERVAL_MINUTES);
                     return LocalDateTime.of(d, t);
                 }
             }

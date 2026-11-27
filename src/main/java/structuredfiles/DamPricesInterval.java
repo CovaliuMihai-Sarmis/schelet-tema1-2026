@@ -1,13 +1,13 @@
-package structured_files;
+package structuredfiles;
 
-public class DamPricesInterval extends Interval {
+public final class DamPricesInterval extends Interval {
     private Double priceAmount;
 
     public Double getPriceAmount() {
         return priceAmount;
     }
 
-    public void setPriceAmount(Double priceAmount) {
+    public void setPriceAmount(final Double priceAmount) {
         this.priceAmount = priceAmount;
     }
 

@@ -1,6 +1,6 @@
-package structured_files;
+package structuredfiles;
 
-public class DamPricePredictionInterval extends Interval {
+public final class DamPricePredictionInterval extends Interval {
     private Double predictedPriceEurMwh;
     private Double spikeProbability;
 
@@ -8,7 +8,7 @@ public class DamPricePredictionInterval extends Interval {
         return predictedPriceEurMwh;
     }
 
-    public void setPredictedPriceEurMwh(Double predictedPriceEurMwh) {
+    public void setPredictedPriceEurMwh(final Double predictedPriceEurMwh) {
         this.predictedPriceEurMwh = predictedPriceEurMwh;
     }
 
@@ -16,7 +16,7 @@ public class DamPricePredictionInterval extends Interval {
         return spikeProbability;
     }
 
-    public void setSpikeProbability(Double spikeProbability) {
+    public void setSpikeProbability(final Double spikeProbability) {
         this.spikeProbability = spikeProbability;
     }
 

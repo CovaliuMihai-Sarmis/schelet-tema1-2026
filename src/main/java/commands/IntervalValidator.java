@@ -3,14 +3,14 @@ package commands;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.MarketDataInput;
-import start_simulation.Simulation;
-import structured_files.DamPricePredictionInterval;
-import structured_files.DamPricesInterval;
-import structured_files.GridLoadInterval;
-import structured_files.GridLoadPredictionInterval;
-import structured_files.ImbalancePricesInterval;
-import structured_files.ImbalanceVolumesInterval;
-import structured_files.Interval;
+import startsimulation.Simulation;
+import structuredfiles.DamPricePredictionInterval;
+import structuredfiles.DamPricesInterval;
+import structuredfiles.GridLoadInterval;
+import structuredfiles.GridLoadPredictionInterval;
+import structuredfiles.ImbalancePricesInterval;
+import structuredfiles.ImbalanceVolumesInterval;
+import structuredfiles.Interval;
 
 public final class IntervalValidator {
     private static final double MIN_DAM_PRICE = -500.0;

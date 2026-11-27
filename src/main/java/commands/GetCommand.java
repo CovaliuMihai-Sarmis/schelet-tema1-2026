@@ -4,14 +4,14 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.CommandInput;
 import fileio.CommandParametersInput;
-import start_simulation.Simulation;
-import structured_files.DamPricePredictionInterval;
-import structured_files.DamPricesInterval;
-import structured_files.GridLoadInterval;
-import structured_files.GridLoadPredictionInterval;
-import structured_files.ImbalancePricesInterval;
-import structured_files.ImbalanceVolumesInterval;
-import structured_files.Interval;
+import startsimulation.Simulation;
+import structuredfiles.DamPricePredictionInterval;
+import structuredfiles.DamPricesInterval;
+import structuredfiles.GridLoadInterval;
+import structuredfiles.GridLoadPredictionInterval;
+import structuredfiles.ImbalancePricesInterval;
+import structuredfiles.ImbalanceVolumesInterval;
+import structuredfiles.Interval;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 public final class GetCommand extends ExecuteCommand {
+    private static final int INTERVAL_MINUTES = 15;
+    private static final int INTERVALS_PER_HOUR = 4;
     private static final DateTimeFormatter ISO_FMT =
             DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
@@ -48,22 +50,23 @@ public final class GetCommand extends ExecuteCommand {
         String target = parameters.getTarget();
         if (target != null) {
             if ("LATEST".equals(target)) {
-                int extraMinutes = cmdTime.getMinute() % 15;
-                LocalDateTime defaultTo = cmdTime.minusMinutes(extraMinutes).withSecond(0).withNano(0);
-                LocalDateTime defaultFrom = defaultTo.minusMinutes(15);
+                int extraMinutes = cmdTime.getMinute() % INTERVAL_MINUTES;
+                LocalDateTime defaultTo = cmdTime.minusMinutes(extraMinutes)
+                        .withSecond(0).withNano(0);
+                LocalDateTime defaultFrom = defaultTo.minusMinutes(INTERVAL_MINUTES);
 
                 LocalDateTime latestStart = simulation.getRepository()
                         .findLatestIntervalStart(dataType, defaultFrom);
                 if (latestStart != null) {
                     from = latestStart;
-                    to = latestStart.plusMinutes(15);
+                    to = latestStart.plusMinutes(INTERVAL_MINUTES);
                 } else {
                     from = defaultFrom;
                     to = defaultTo;
                 }
             } else {
                 from = LocalDateTime.parse(target);
-                to = from.plusMinutes(15);
+                to = from.plusMinutes(INTERVAL_MINUTES);
             }
         } else {
             from = LocalDateTime.parse(parameters.getStart());
@@ -87,9 +90,12 @@ public final class GetCommand extends ExecuteCommand {
 
         Map<String, List<ObjectNode>> pointsByDate = new LinkedHashMap<>();
 
-        for (LocalDateTime cur = from; cur.isBefore(to); cur = cur.plusMinutes(15)) {
+        for (LocalDateTime cur = from;
+             cur.isBefore(to);
+             cur = cur.plusMinutes(INTERVAL_MINUTES)) {
             String date = cur.toLocalDate().toString();
-            int index = (cur.getHour() * 4) + (cur.getMinute() / 15) + 1;
+            int index = (cur.getHour() * INTERVALS_PER_HOUR)
+                    + (cur.getMinute() / INTERVAL_MINUTES) + 1;
 
             Interval interval = simulation.getRepository().selectInterval(dataType, date, index);
             if (interval != null && interval.hasData()) {
@@ -138,7 +144,7 @@ public final class GetCommand extends ExecuteCommand {
                                       final int index,
                                       final Interval interval) {
         LocalTime s = slotStart.toLocalTime();
-        LocalTime e = s.plusMinutes(15);
+        LocalTime e = s.plusMinutes(INTERVAL_MINUTES);
         String intervalLabel = String.format("%02d:%02d - %02d:%02d",
                 s.getHour(), s.getMinute(), e.getHour(), e.getMinute());
 

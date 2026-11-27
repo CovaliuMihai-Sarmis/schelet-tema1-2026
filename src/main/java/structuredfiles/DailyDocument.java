@@ -1,4 +1,4 @@
-package structured_files;
+package structuredfiles;
 import java.util.List;
 
 public abstract class DailyDocument<T> {
@@ -12,67 +12,67 @@ public abstract class DailyDocument<T> {
 
     private List<T> points;
 
-    public String getBiddingZoneDomain() {
+    public final String getBiddingZoneDomain() {
         return biddingZoneDomain;
     }
 
-    public void setBiddingZoneDomain(String biddingZoneDomain) {
+    public final void setBiddingZoneDomain(final String biddingZoneDomain) {
         this.biddingZoneDomain = biddingZoneDomain;
     }
 
-    public String getPeriodStart() {
+    public final String getPeriodStart() {
         return periodStart;
     }
 
-    public void setPeriodStart(String periodStart) {
+    public final void setPeriodStart(final String periodStart) {
         this.periodStart = periodStart;
     }
 
-    public String getPeriodEnd() {
+    public final String getPeriodEnd() {
         return periodEnd;
     }
 
-    public void setPeriodEnd(String periodEnd) {
+    public final void setPeriodEnd(final String periodEnd) {
         this.periodEnd = periodEnd;
     }
 
-    public String getResolution() {
+    public final String getResolution() {
         return resolution;
     }
 
-    public void setResolution(String resolution) {
+    public final void setResolution(final String resolution) {
         this.resolution = resolution;
     }
 
-    public String getCurrencyUnit() {
+    public final String getCurrencyUnit() {
         return currencyUnit;
     }
 
-    public void setCurrencyUnit(String currencyUnit) {
+    public final void setCurrencyUnit(final String currencyUnit) {
         this.currencyUnit = currencyUnit;
     }
 
-    public String getPriceMeasureUnit() {
+    public final String getPriceMeasureUnit() {
         return priceMeasureUnit;
     }
 
-    public void setPriceMeasureUnit(String priceMeasureUnit) {
+    public final void setPriceMeasureUnit(final String priceMeasureUnit) {
         this.priceMeasureUnit = priceMeasureUnit;
     }
 
-    public String getQuantityMeasureUnit() {
+    public final String getQuantityMeasureUnit() {
         return quantityMeasureUnit;
     }
 
-    public void setQuantityMeasureUnit(String quantityMeasureUnit) {
+    public final void setQuantityMeasureUnit(final String quantityMeasureUnit) {
         this.quantityMeasureUnit = quantityMeasureUnit;
     }
 
-    public List<T> getPoints() {
+    public final List<T> getPoints() {
         return points;
     }
 
-    public void setPoints(List<T> points) {
+    public final void setPoints(final List<T> points) {
         this.points = points;
     }
 }

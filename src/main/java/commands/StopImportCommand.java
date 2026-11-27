@@ -2,7 +2,7 @@ package commands;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import fileio.CommandInput;
-import start_simulation.Simulation;
+import startsimulation.Simulation;
 import java.time.LocalDateTime;
 
 public final class StopImportCommand extends ExecuteCommand {

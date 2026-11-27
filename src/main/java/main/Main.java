@@ -7,7 +7,7 @@ import commands.ExecuteCommand;
 import commands.ReturnObjectFromCommand;
 import fileio.CommandInput;
 import fileio.InputLoader;
-import start_simulation.Simulation;
+import startsimulation.Simulation;
 
 
 import java.io.File;

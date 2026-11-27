@@ -3,8 +3,8 @@ package commands;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import fileio.CommandInput;
 import fileio.MarketDataInput;
-import start_simulation.Simulation;
-import structured_files.Interval;
+import startsimulation.Simulation;
+import structuredfiles.Interval;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,6 +12,9 @@ import java.time.LocalTime;
 import java.util.List;
 
 public final class ImportCommand extends ExecuteCommand {
+    private static final int INTERVAL_MINUTES = 15;
+    private static final int INTERVALS_PER_HOUR = 4;
+
     public ImportCommand(final CommandInput input) {
         super(input);
     }
@@ -55,7 +58,8 @@ public final class ImportCommand extends ExecuteCommand {
                 continue;
             }
 
-            if (start.getMinute() % 15 != 0 || !start.plusMinutes(15).equals(end)) {
+            if (start.getMinute() % INTERVAL_MINUTES != 0
+                    || !start.plusMinutes(INTERVAL_MINUTES).equals(end)) {
                 continue;
             }
 
@@ -64,7 +68,8 @@ public final class ImportCommand extends ExecuteCommand {
 //                continue;
 //            }
 
-            int index = (start.getHour() * 4) + (start.getMinute() / 15) + 1;
+            int index = (start.getHour() * INTERVALS_PER_HOUR)
+                    + (start.getMinute() / INTERVAL_MINUTES) + 1;
             Interval valid = IntervalValidator.validateAndBuild(
                     item, index, simulation, "import", input.getTimestamp(), output);
 

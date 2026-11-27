@@ -1,4 +1,4 @@
-package start_simulation;
+package startsimulation;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import commands.ExecuteCommand;
